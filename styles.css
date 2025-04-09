@@ -1,48 +1,85 @@
-.container {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
+/* 全局樣式 */
+body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f9f9f9;
 }
 
-.column {
-    flex: 1;
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.calculator-box {
+    background: white;
     padding: 20px;
-    border: 1px solid #ddd;
     border-radius: 8px;
-    background: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #4CAF50;
+    font-size: 1.8em; /* 放大字體 */
+}
+
+.input-row {
+    display: flex;
+    gap: 10px; /* 縮小行距 */
 }
 
 .input-group {
-    margin-bottom: 15px;
+    flex: 1;
 }
 
 label {
     display: block;
     margin-bottom: 5px;
-    color: #333;
+    font-size: 1.2em; /* 放大字體 */
 }
 
 input {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;
 }
 
 button {
-    background: #4CAF50;
+    width: 100%;
+    padding: 12px; /* 放大按鈕 */
+    background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
+button:hover {
+    background-color: #45a049;
+}
+
 .results {
-    margin-top: 20px;
-    padding: 15px;
-    background: white;
-    border-radius: 4px;
+    margin-top: 15px; /* 縮小行距 */
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* 手機版改為垂直排列 */
+        gap: 15px; /* 增加間距 */
+    }
+
+    h2 {
+        font-size: 1.5em; /* 手機版縮小標題字體 */
+    }
+
+    button {
+        font-size: 1em; /* 手機版縮小按鈕字體 */
+        padding: 10px; /* 手機版縮小按鈕內邊距 */
+    }
 }
