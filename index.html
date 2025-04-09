@@ -1,67 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>跨境商品利潤計算機</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <!-- 泰國商品 -->
-        <div class="column">
-            <h2>泰國商品</h2>
+        <!-- 泰國商品區塊 -->
+        <div class="calculator-box">
+            <h2>🇹🇭 泰國商品計算</h2>
             <div class="input-group">
-                <label>商品售價 (台幣)</label>
+                <label for="th-price">商品售價 (台幣)</label>
                 <input type="number" id="th-price" placeholder="輸入金額">
             </div>
-            <div class="input-group">
-                <label>商品成本 (泰銖)</label>
-                <input type="number" id="th-cost" placeholder="輸入金額">
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="th-cost">商品成本 (泰銖)</label>
+                    <input type="number" id="th-cost" placeholder="輸入金額">
+                </div>
+                <div class="input-group">
+                    <label for="th-rate">匯率 (1台幣=泰銖)</label>
+                    <input type="number" step="0.001" id="th-rate" value="1.005">
+                </div>
             </div>
-            <div class="input-group">
-                <label>匯率 (1台幣=泰銖)</label>
-                <input type="number" step="0.001" id="th-rate" placeholder="輸入匯率">
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="th-weight">重量 (克)</label>
+                    <input type="number" id="th-weight" placeholder="輸入重量">
+                </div>
+                <div class="input-group">
+                    <label for="th-shipping">運費/公斤 (台幣)</label>
+                    <input type="number" id="th-shipping" value="140">
+                </div>
             </div>
-            <div class="input-group">
-                <label>商品重量 (克)</label>
-                <input type="number" id="th-weight" placeholder="輸入重量">
-            </div>
-            <div class="input-group">
-                <label>海外運費 (每公斤台幣)</label>
-                <input type="number" id="th-shipping" placeholder="輸入金額">
-            </div>
-            <button class="calculate-btn" data-country="th">計算</button>
+            <button onclick="calculate('th')">立即計算</button>
             <div class="results" id="th-results"></div>
         </div>
 
-        <!-- 日本商品 -->
-        <div class="column">
-            <h2>日本商品</h2>
+        <!-- 日本商品區塊 -->
+        <div class="calculator-box">
+            <h2>🇯🇵 日本商品計算</h2>
             <div class="input-group">
-                <label>商品售價 (台幣)</label>
+                <label for="jp-price">商品售價 (台幣)</label>
                 <input type="number" id="jp-price" placeholder="輸入金額">
             </div>
-            <div class="input-group">
-                <label>商品成本 (日圓)</label>
-                <input type="number" id="jp-cost" placeholder="輸入金額">
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="jp-cost">商品成本 (日圓)</label>
+                    <input type="number" id="jp-cost" placeholder="輸入金額">
+                </div>
+                <div class="input-group">
+                    <label for="jp-rate">匯率 (1日圓=台幣)</label>
+                    <input type="number" step="0.0001" id="jp-rate" value="0.24">
+                </div>
             </div>
-            <div class="input-group">
-                <label>匯率 (1日圓=台幣)</label>
-                <input type="number" step="0.0001" id="jp-rate" placeholder="輸入匯率">
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="jp-weight">重量 (克)</label>
+                    <input type="number" id="jp-weight" placeholder="輸入重量">
+                </div>
+                <div class="input-group">
+                    <label for="jp-shipping">運費/公斤 (台幣)</label>
+                    <input type="number" id="jp-shipping" value="220">
+                </div>
             </div>
-            <div class="input-group">
-                <label>商品重量 (克)</label>
-                <input type="number" id="jp-weight" placeholder="輸入重量">
-            </div>
-            <div class="input-group">
-                <label>海外運費 (每公斤台幣)</label>
-                <input type="number" id="jp-shipping" placeholder="輸入金額">
-            </div>
-            <button class="calculate-btn" data-country="jp">計算</button>
+            <button onclick="calculate('jp')">立即計算</button>
             <div class="results" id="jp-results"></div>
         </div>
     </div>
 
     <!-- 引用外部 JavaScript 文件 -->
-    <script src="calculator.js"></script>
+    <script src="./calculator.js"></script>
 </body>
 </html>
